@@ -2,7 +2,7 @@
 Personal notes for Prof. Hung-Yi Lee's lectures on [Generative Adversarial Networks](https://www.youtube.com/playlist?list=PLJV_el3uVTsMq6JEFPW35BCiOQTsoqwNw). I really enjoy the lectures, I hope my notes are useful.
 
 ## Personal Notes
-___
+
 
 My notes were created based on the Generative Adversarial Networks:
 
@@ -21,11 +21,11 @@ Links :
 * [Course Slides](http://speech.ee.ntu.edu.tw/~tlkagk/courses_MLDS18.html)
 
 ## Acknowledgement
-___
+
 Thanks to Prof. [Hung-Yi Lee](http://speech.ee.ntu.edu.tw/~tlkagk/index.html) for sharing knowledge for free.
 
 ## Disclaimer
-___
+
 These notes are heavily based on Prof Lee's lectures and presentation slides. Any error or mistake you discovered in the notes is most probably my mistake. For clarity, please go through the presentation slides.
 
 
