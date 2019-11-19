@@ -22,4 +22,4 @@ GAN was invented by Ian Goodfellow in 2014. Since then many variations of GAN we
 
 When there's a new variation of GAN invented, the naming convention is such that an alphabet is added before *GAN*. For example, if I invented a GAN that generates Spongebob images, I will name it **SGAN**, adding **S** before GAN. At the time of writing this note, there are **six** different GANs called SGAN as shown in following figure 👇 
 
-![Figure 1](images/gan_names_sgan.png)
+![Figure 1](Lecture%201%20Notes/images/gan_names_sgan.png)
