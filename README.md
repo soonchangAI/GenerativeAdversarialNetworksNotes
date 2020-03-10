@@ -1,12 +1,10 @@
 # Generative Adversarial Networks Notes
-Personal notes for Prof. Hung-Yi Lee's lectures on [Generative Adversarial Networks](https://www.youtube.com/playlist?list=PLJV_el3uVTsMq6JEFPW35BCiOQTsoqwNw). I really enjoy the lectures, I hope my notes are useful.
+My notes for Prof. Hung-Yi Lee's lectures on [Generative Adversarial Networks](https://www.youtube.com/playlist?list=PLJV_el3uVTsMq6JEFPW35BCiOQTsoqwNw). I really enjoy the lectures, I hope my notes are useful.
 
-## Personal Notes
+## Content
 
 
-My notes were created based on the Generative Adversarial Networks:
-
-1. [Introduction]()
+1. [Introduction](Lecture%201%20Notes/README.md)
 1. [Conditional Generation]() *work in progress*
 1. [Unsupervised Conditional Generation]() *work in progress*
 1. [Basic Theory]() *work in progress*
@@ -26,6 +24,6 @@ Thanks to Prof. [Hung-Yi Lee](http://speech.ee.ntu.edu.tw/~tlkagk/index.html) fo
 
 ## Disclaimer
 
-These notes are heavily based on Prof Lee's lectures and presentation slides. Any error or mistake you discovered in the notes is most probably my mistake. For clarity, please go through the presentation slides.
+These notes are based on my understanding of Prof Lee's lectures. Any error or mistake you discovered in the notes is my mistake. For clarity, please go through the presentation slides.
 
 
