@@ -8,7 +8,7 @@ This is the notes for first lecture of a series of GAN lectures by Prof. Lee. It
 
 * [Basic Idea of GAN](###basic-Idea-of-GAN)
 
-* [GAN as Structured Learning](###basic-Idea-of-GAN)
+* [GAN as Structured Learning](###GAN-as-Structured-Learning)
 * [Can Generator Learn by Itself ?](###Can-Generator-Learn-by-Itself-?)
 * [Can Discriminator Generate ?](###Can-Discriminator-Generate-?)
 * [A Little Bit Theory](###A-Little-Bit-Theory)
@@ -90,19 +90,70 @@ The algorithm for training GAN:
 <img src="images/algorithm.PNG" width = "600" >
 
 **Explanation :**
-* Initialize parameters (weights and biases) of generator and discriminator
+* Initialize parameters (weights and biases) of generator G and discriminator D
 * In each training iteration:
  > 1. Fix generator G, and update discriminator D.
  >* Database ⟶ Real samples , labeled 1
  >* Randomly sampled vectors from normal distribution ⟶ G ⟶ Generated samples, labeled 0
  >* Fix the parameters of generator
- >* Discriminator learns to give high scores to real samples, low scores to generated samples.
- >* Update parameters of discriminator
+ >* Discriminator learns to give high scores to real samples by maximize <code>*log* *D*(*x_i*) </code>
+ >* Gives low scores to generated samples by maximize <code>1 - *log* *D*(*x_tilde*) </code>
+ >* Update discriminator parameters
 
  >2. Fix discriminator D, and update generator G
- >* Generator learns to "*fool*" the discriminator
- >* Want: Discriminator to give high score to generated samples
  >* Generator generates samples, labeled 1
+ >* Generator learns to "*fool*" the discriminator
+ >* Generate samples in such a way that discriminator gives high score to generated samples
+ >* By maximizing <code>*log* *D*(*G*(*x_i*)) </code>
  >* Fix discriminator parameters
- >* Gradient ascent to update generator's parameters
+ >* Update generator parameters 
 
+
+## GAN as Structured Learning
+
+### What is Structured Learning ?
+
+* Machine learning finds a function which maps input X to target Y
+>>  *f* : X ⟶ Y
+* Regression: output a scalar
+* Classification: output a "class" in form of one-hot vector
+>>* Class 1 = [ 1, 0, 0 ] 
+>>* Class 2 = [ 0, 1, 0 ]
+>>* Class 3 = [ 0, 0, 1 ]
+* **Structured learning** outputs a sequence, a matrix, a graph, a tree ...
+>>* Example, machine translation
+>>>*  X: Fried rice is delicious (English)
+>>>*  Y: Nasi goreng sedap (Malay)
+>>* Speech recognition, X = speech signal and Y = Transcript
+>>* Chatbot, X = "How are you ?" and Y = "I am fine"
+>>* Image to image
+>>* Text to image
+* The components of the output have dependency / relationship with each other
+* For example, output of Chatbot Y = "I am fine", the components are words "I", "am" and "fine". 
+* Each of the word has dependency on other
+* Structured learning is challenging because it is **one-shot / zero-shot learning**
+    * One-shot learning, each class only has few training examples.
+    * Zero-shot learning, no training examples.
+    * For classification, each class has some examples.
+    * For structured learning, each output is unique because there is no fixed class.
+    * For example, machine translation, the target for each input is different.
+    * If you consider each possible output as a *class* , the output space is very large.
+    * Plus, most "classes" do not have any training examples.
+    * During testing, machine has to create something new, unseen in training set.
+    * This requires more intelligence compared to normal classification.
+* Machine has to **plan**.
+    * Generates objects component-by-component.
+    * Must have a *big picture* in its mind.
+    * There is relationship between components of output.
+    * For example, generating response for Chatbot word by word.
+    * Words in a sentence have dependency with each other.
+    * Cannot treat each of the word independently / separately.
+    * Should treat them as a whole / considered globally.
+
+<img src="images/structured_learning.PNG" width = "600" >
+
+Structure Learning Approach:
+1. Bottom Up: Learn to generate the object component-by-component.
+> Example: Generator
+2. Top Down: Evaluate the object as a whole, and find the best one.
+> Example: Discriminator
