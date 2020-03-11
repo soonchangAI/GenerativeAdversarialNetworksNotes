@@ -1,7 +1,7 @@
 # Generative Adversarial Networks Notes
 My notes for Prof. Hung-Yi Lee's lectures on [Generative Adversarial Networks](https://www.youtube.com/playlist?list=PLJV_el3uVTsMq6JEFPW35BCiOQTsoqwNw). I really enjoy the lectures, I hope my notes are useful.
 
-## Content
+## Contents
 
 
 1. [Introduction](Lecture%201%20Notes/README.md)
