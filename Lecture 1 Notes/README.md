@@ -64,7 +64,7 @@ The naming convention of GAN is adding a alphabet before GAN. For example, **SGA
 ### Analogy of GAN:
 
 
-<img src="images/gan_analogy.PNG" width = "300" >
+<img src="images/gan_analogy.PNG" width = "600" >
 
 A well-trained GAN can generate highly realistic image. The learning process of GAN can be described using an anology of evolution. 
 1. In a forest, there are two type of animals: butterfly and bird.
@@ -87,7 +87,7 @@ In this anology, butterfly plays the role of <code>Generator</code>. Whereas, th
 Both generator and discriminator are Neural Network (NN).
 The algorithm for training GAN: 
 
-<img src="images/algorithm.PNG" width = "300" >
+<img src="images/algorithm.PNG" width = "600" >
 
 **Explanation :**
 * Initialize parameters (weights and biases) of generator and discriminator
