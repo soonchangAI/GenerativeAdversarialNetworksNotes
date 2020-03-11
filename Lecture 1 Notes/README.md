@@ -48,9 +48,9 @@ The naming convention of GAN is adding a alphabet before GAN. For example, **SGA
 * Want each dimension of the input vector represents some attributes.
 * For example, the last dimension corresponds to *emotion* 
 * By changing the value of last dimension, can change the emotion.
-> [ 0.8, 0.4, ... , <mark>0.1</mark> ]  ⟶ Generator ⟶ 😊
+> [ 0.8, 0.4, ... , **0.1** ]  ⟶ Generator ⟶ 😊
 
-> [ 0.2, 0.1, ... ,  <mark>0.9</mark> ]  ⟶ Generator ⟶ 😂
+> [ 0.2, 0.1, ... , **0.9** ]  ⟶ Generator ⟶ 😂
 * `Conditional Generation` will be discussed in Chapter 2.
 
 
