@@ -238,7 +238,9 @@ Structure Learning Approach:
 * Note: Next iteration, use improved discriminator to generate better negative examples.
 * Repeat iteratively, discriminator will learn to generate good objects.
 
-<img src="images/d_learning.PNG" width = "600" >
+
+<img src="images/d_learning.PNG" width = "400" >
+
 
 * Real examples in green, negative examples in blue.
 * Red line is the decision boundary of D denoted D(x).
