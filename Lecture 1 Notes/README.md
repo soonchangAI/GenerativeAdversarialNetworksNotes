@@ -145,7 +145,7 @@ The algorithm for training GAN:
     * Generates objects component-by-component.
     * Must have a *big picture* in its mind.
     * There is relationship between components of output.
-    * For example, generating response for Chatbot word by word.
+    * For example, generating response for Chatbot word-by-word.
     * Words in a sentence have dependency with each other.
     * Cannot treat each of the word independently / separately.
     * Should treat them as a whole / considered globally.
@@ -157,3 +157,150 @@ Structure Learning Approach:
 > Example: Generator
 2. Top Down: Evaluate the object as a whole, and find the best one.
 > Example: Discriminator
+
+## Can Generator Learn by Itself ?
+
+<img src="images/autoencoder.PNG" width = "600" >
+
+* **Auto-encoder** can be used for generation of objects such as image.
+* Consists of 2 parts: Encoder and Decoder.
+* Encoder's number of units is smaller at the output
+* Encoder encodes input image into a lower dimension vector called code.
+* Decoder's output layer has the same number of units as encoder's input layer.
+* Decoder receives the code from decoder.
+* Decoder tries to reconstruct the input image from the code.
+* Training objective: Want input and output as close as possible.
+> Image ⟶ Neural Network Encoder ⟶ code ⟶ NN Decoder ⟶ Reconstructed Image
+* The encoder's output must have less number of units.
+* Or else, the auto-encoder only learns to be a identity matrix, copy from input to output.
+* Decoder does the job of generator.
+* However, autoencoder's decoder not necessarily generate realistic / meaningful output when given a code
+* For example, two codes *a* and *b* when input to generator, generates meaningful output.
+* Linear combination of these codes when input to generator, may not generate meaningful output.
+> *a* ⟶ Generator ⟶ Image , *b* ⟶ Generator ⟶ Image
+> * 0.5 *a* + 0.5 *b* ⟶ Generator ⟶ Noise
+
+
+* Variational auto-encoder is more stable
+
+<img src="images/vae.PNG" width = "600" >
+
+
+* The training objective is to have generated image as close as possible to the target.
+* The loss function used may be L1 or L2 norm of the difference of two image (generated and target).
+* That means it compares them pixel-by-pixel
+
+<img src="images/pixel.PNG" width = "600" >
+
+* If the generator can reproduce (copy) the target image, it is fine.
+* But if it make mistakes 
+    * Some mistakes are okay, while some are not
+    * Small difference in pixels doesn't mean that the generated image is acceptable.
+* For example:
+
+<img src="images/pixel2.PNG" width = "600" >
+
+* On the top, two 1-pixel error generated images.
+* On the bottom, two 6-pixels error generated images.
+* To the machine, the images on the top are better 
+* To human, the top images are not okay. The images on the bottom despite more pixel differences from the target, are acceptable.
+* Auto-encoder generate the image pixel-by-pixel.
+* Each pixel may be dependent on other pixels.
+* The relation between them are critical.
+* Each output unit of the auto-encoder correspond to a pixel.
+* The pixels are highly correlated.
+* However, they cannot influence each other because the decoder can't capture the relationship between each pixel
+* If the decoder has more layers, it might be able to capture the relationship between the pixels.
+
+## Can Discriminator Generate ?
+* Discriminator is a function (NN) which outputs a scalar
+* Given an input *x* (eg. image), output D(*x*) which is a score of how "good" *x* is.
+* Discriminator can easily capture the relationship between components by top-down evaluation.
+* To capture relationship between pixels of image, CNN filter is good enough.
+* Discriminator can generate objects by solving the following optimization problem:
+> * Generate object *x_tilde* such that:
+>   * <code>*x_tilde* =  argmax D(*x*) for all *x*</code>
+* It is not feasible because need to enumerate all possible *x*.
+* Even if there is a way
+* Like critics, discriminator is only good at criticizing other people's works.
+* Discriminator is bad at coming out with something constructive.
+* For training, discriminator need negative training examples.
+* Negative examples are critical.
+* Must have a method of producing good negative examples (realistic enough) so that discriminator can learn to discriminate good and fake.
+* Which in turn can use this knowledge to generate better examples.
+* A possible algorithm to train discriminator to generate objects:
+> * Assuming <code>argmax</code> optimization problem can be solved.
+> 1. Given a set of positive (real) examples, randomly generate a set of negative examples.
+> 2. In each iteration:
+>   * Learn a discriminator D that can discriminate positve and negative examples.
+>   * Generate negatve examples by discriminanator D by solving <code>argmax</code> problem
+>
+* Note: Next iteration, use improved discriminator to generate better negative examples.
+* Repeat iteratively, discriminator will learn to generate good objects.
+
+<img src="images/d_learning.PNG" width = "600" >
+
+* Real examples in green, negative examples in blue.
+* Red line is the decision boundary of D denoted D(x).
+* During training, D to give lower score to negative examples and high score to real examples
+* D(x) increases for real examples, increase for negative examples.
+* However, practically cannot decrease D(x) for every negative examples because only have finite number of negative examples
+* In 3, negative examples are generated at area with high D(x) from previosly.
+* In the end, the distribution of real and negative examples are the same
+* Can generate very realistic negative examples that D(x) is unable to tell apart.
+
+## Generator vs. Discriminator
+**Generator:**
+>Pros :
+> * Easy to generate even with a deep model.
+
+>Cons :
+> * Imitate appearance of target image.
+> * Hard to learn correlation between components. 
+> * Compared to GAN, need a deeper Auto-encoder to learn the correlation at similar level.
+> * Touch on surface, didn't get the big picture / core idea
+
+**Discriminator:**
+
+> * Consider the *big picture*, ie. capture relation between components 
+
+>Cons :
+> * Generation is feasible
+> * NN is non-linear
+> * Can be solved with a linear assumption
+> * But this in turns limit the generation capability
+> * Problem with negative sampling
+
+**Generator + Discriminator**
+* Generator does negative sampling
+* Replace the need of solving <code>argmax</code> problem
+* Disciminator gives high score to real examples, low score to negative examples.
+* Generator used this feedback to learn to generate objects that discriminator will give high score. 
+* In other words, use NN to learn to solve <code>argmax</code> problem of D.
+
+From discrminator's point of view:
+* Use generator to generate negative examples is more efficient
+* Rather than have to solve the complicated *argmax* problem
+
+From generator's point of view:
+* Still generate the object component-by-component.
+* But it is learned from the discriminator which has a big picture of whether generated object is "good" or not.
+
+**Result :**
+
+<img src="images/fid.PNG" width = "600" >
+
+A experiment to evaluate different version of GAN.
+* FID score: smaller is better.
+* Each colour represents FID score for one type of GAN.
+* Vertically: different set of parameters.
+* Similar results for different version of GAN.
+* For VAE, the vertical bar is much shorter.
+* This means that VAE is more "stable", has similar results despite different parameters.
+* GAN is less stable.
+* Low FID score for lots of parameters settings.
+* For GAN, works well only with specific set of parameters.
+* However, GAN with best parameters outperforms VAE.
+
+References: 
+1. [Are GANs Created Equal? A Large-Scale Study](https://arxiv.org/pdf/1711.10337.pdf)
