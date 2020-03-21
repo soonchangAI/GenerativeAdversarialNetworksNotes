@@ -5,7 +5,7 @@ My notes for Prof. Hung-Yi Lee's lectures on [Generative Adversarial Networks](h
 
 
 1. [Introduction](Lecture%201%20Notes/README.md)
-1. [Conditional Generation]() *work in progress*
+1. [Conditional Generation](Lecture%202%20Notes/README.md)
 1. [Unsupervised Conditional Generation]() *work in progress*
 1. [Basic Theory]() *work in progress*
 1. [General Framework]() *work in progress*
