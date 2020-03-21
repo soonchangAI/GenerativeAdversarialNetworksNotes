@@ -89,7 +89,7 @@ Paper: [Image-to-Image Translation with Conditional Adversarial Networks](https:
 
 Example:
 
-<img src="images/result.PNG" width="600">
+<img src="https://github.com/soon22/GenerativeAdversarialNetworksNotes/blob/master/Lecture%202%20Notes/images/result.PNG" width="600">
 
 * Traditional supervised approach
 > image → Neural Network → image 
@@ -103,9 +103,8 @@ Example:
 
 * For example:
 
-<p>
-<img src="images/result2.PNG" width="200">
-</p>
+
+<img src="https://github.com/soon22/GenerativeAdversarialNetworksNotes/blob/master/Lecture%202%20Notes/images/result2.PNG" width="200">
 
 * Red circle: Got something like a window
 * Not intended in the input
@@ -140,7 +139,7 @@ Example:
 Example:
 Link: https://github.com/dyelax/Adversarial_Video_Generation
 
-<img src="images/videogen.gif" width="500">
+<img src="https://github.com/soon22/GenerativeAdversarialNetworksNotes/blob/master/Lecture%202%20Notes/images/videogen.gif" width="500">
 
 * For non-adversarial method, the monster sometimes will split to two
 * One go to left, one go to right
