@@ -103,7 +103,9 @@ Example:
 
 * For example:
 
+<p>
 <img src="images/result2.PNG" width="200">
+</p>
 
 * Red circle: Got something like a window
 * Not intended in the input
