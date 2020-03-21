@@ -4,10 +4,11 @@
 * For examples:
 
 **Image Style Transfer**
-![](images/ex1.png?raw=true)
+
+<img src="images/ex1.PNG" width="600"/>
 
 **Voice Transfer**
-![](images/ex2.png?raw=true)
+<img src="images/ex2.PNG" width="600"/>
 
 Two Approaches:
 
@@ -19,7 +20,8 @@ Two Approaches:
 * Use GAN for image style transfer
 Implementation 1:
 
-![](images/im1.png?raw=true)
+<img src="images/im1.PNG" width="600"/>
+
 * Domain X : Source 
 * Domain Y : Target style
 * Collect images for domain X and domain Y
@@ -41,7 +43,8 @@ Implementation 1:
     * Want these 2 vectors to be as close as possible to each other
 
 **Solution 3: Cycle GAN**
-![](images/cyclegan.png?raw=true)
+
+<img src="images/cyclegan.PNG" width="600"/>
 
 * <code>G_X⟶Y</code> : Transform image from domain X to domain Y
 * <code>D_Y</code> : The generated image belongs to domain Y or not
@@ -51,14 +54,17 @@ Implementation 1:
 * In this way, the Generator <code>G_X⟶Y</code> doesn't have enough information to generate images similar to training examples of domain Y which is dissimilar from the input image
 
 **Complete Cycle GAN**
-![](images/cyclegancomplete.png?raw=true)
+
+<img src="images/cyclegancomplete.PNG" width="600"/>
 
 * Transform images of domain Y to domain X as well
 * Learn side by side
 * Note : Can actually train a successful Cycle GAN without using cycle consistency.
 
 **Issue of Cycle Consistency**
-![](images/hidinginfo.png?raw=true)
+
+<img src="images/hidinginfo.PNG" width="600"/>
+
 * Cycle GAN is a master of Steganography
 * Hiding information 
 * For example, red rectangle in input and reconstructed images have black dots
