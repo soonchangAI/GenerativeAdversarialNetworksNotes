@@ -58,6 +58,8 @@ Implementation 1:
    * c and x are matched or not
 * Generator won't know which area it is not good at
 
+Implementation 2:
+
 <img src="images/cgan5.PNG" width="400">
 
 * Make more sense
@@ -101,7 +103,7 @@ Example:
 
 * For example:
 
-<img src="images/result2.PNG" >
+<img src="images/result2.PNG" width="200">
 
 * Red circle: Got something like a window
 * Not intended in the input
