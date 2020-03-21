@@ -71,8 +71,8 @@ Implementation 2:
 **Stack GAN**
 * Paper: [StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks](https://arxiv.org/abs/1612.03242)
 
+![](images/stackgan.png?raw=true)
 
-<img src="images/stackgan.PNG" width="600">
 
 * Two GANs
 * First GAN is a CGAN generates 64 x 64 image from text description
@@ -89,7 +89,9 @@ Paper: [Image-to-Image Translation with Conditional Adversarial Networks](https:
 
 Example:
 
-<img src="images/result.PNG" width="600"/>
+
+
+![](images/result.png?raw=true)
 
 * Traditional supervised approach
 > image → Neural Network → image 
@@ -103,8 +105,7 @@ Example:
 
 * For example:
 
-
-<img src="images/result2.PNG" width="200"/>
+![](images/result2.png?raw=true)
 
 * Red circle: Got something like a window
 * Not intended in the input
