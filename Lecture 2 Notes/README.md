@@ -89,7 +89,7 @@ Paper: [Image-to-Image Translation with Conditional Adversarial Networks](https:
 
 Example:
 
-<img src="https://github.com/soon22/GenerativeAdversarialNetworksNotes/blob/master/Lecture%202%20Notes/images/result.PNG" width="600">
+<img src="images/result.PNG" width="600"/>
 
 * Traditional supervised approach
 > image → Neural Network → image 
@@ -97,14 +97,14 @@ Example:
 > * Result is blurry because it's average of several images
 > * Look at L1 column
 
-<img src="images/result1.PNG" width="600">
+<img src="images/result1.PNG" width="600"/>
 
 * On other hand, GAN's generated image is clear, but got some "unintended" stuff
 
 * For example:
 
 
-<img src="https://github.com/soon22/GenerativeAdversarialNetworksNotes/blob/master/Lecture%202%20Notes/images/result2.PNG" width="200">
+<img src="images/result2.PNG" width="200"/>
 
 * Red circle: Got something like a window
 * Not intended in the input
@@ -125,11 +125,11 @@ Example:
 
 * Conditional GAN:
 
-<img src="images/cgan_speech.PNG" width="600">
+<img src="images/cgan_speech.PNG" width="600"/>
 
 **Video Generation**
 
-<img src="images/video.PNG" width="500">
+<img src="images/video.PNG" width="500"/>
 
 * Generator generates the next frame
 * Want the generated frame to be as close as possible with the target
@@ -139,7 +139,7 @@ Example:
 Example:
 Link: https://github.com/dyelax/Adversarial_Video_Generation
 
-<img src="https://github.com/soon22/GenerativeAdversarialNetworksNotes/blob/master/Lecture%202%20Notes/images/videogen.gif" width="500">
+<img src="images/videogen.gif" width="500"/>
 
 * For non-adversarial method, the monster sometimes will split to two
 * One go to left, one go to right
