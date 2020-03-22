@@ -128,5 +128,23 @@ Solution 3: Cycle Consistency
 * Minimize the error between the input image and decoded image
 
 Reference:
-1. ComboGAN [Asha Anoosheh, et al., arXiv, 017]
+1. ComboGAN [Asha Anoosheh, et al., arXiv, 2017]
 
+Solution 4: Semantic Consistency
+
+<img src="images/semanticconsistency.PNG" width="600"/>
+
+1. Encoder X encodes the input into a vector
+2. This vector is decoded into domain Y using Decoder Y
+3. Then, decoded image is encoded into a vector
+* Minimize difference between these two vectors
+
+
+References:
+1. DTN [Yaniv Taigman, et al., ICLR, 2017]  
+2. XGAN [Amélie Royer, et al., arXiv, 2017]
+
+**Voice Conversion**
+
+* In the past, need speakers X and Y speak the same thing
+* Now, speakers X and Y can talk about different things
