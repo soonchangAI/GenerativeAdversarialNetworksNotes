@@ -10,7 +10,7 @@ My notes for Prof. Hung-Yi Lee's lectures on [Generative Adversarial Networks](h
 1. [Theory Behind GAN](Lecture%204%20Notes/README.md) 
 1. [General Framework](Lecture%205%20Notes/README.md) 
 1. [Tips for Improving GAN](Lecture%206%20Notes/README.md)
-1. [Info GAN, VAE-GAN, BiGAN]() *work in progress*
+1. [Info GAN, VAE-GAN, BiGAN](Lecture%207%20Notes/README.md) 
 1. [Photo Editing]() *work in progress*
 1. [Sequence Generation]() *work in progress*
 1. [Evaluation and Concluding Remarks]() *work in progress*
