@@ -103,3 +103,83 @@
 
 ## Domain Adversarial Training
 
+<img src="images/domain.PNG" width="600"/>
+
+* Training data and testing data are in different domains
+* For example:
+    * Training data: Grayscale
+    * Testing data: Colour
+* Train a generator which extracts features from the data from different domains 
+
+<img src="images/domain2.PNG" width="600"/> 
+
+* Domain classifier: Classify the feature is from which domain
+* Label predictor: Classify the feature into class
+    * For example, Digit classifier : 0, 1, 2, ..., 9 
+* Feature extractor: Extract features, fools domain classifier and satisfy label predictor at the same time
+* It is a big network
+* Can train it part by part
+* FGAN paper shows Generator and Discriminator can be trained together but the training is not stable
+* Training goal :
+    * Feature extractor : Maximize label classification accuracy + minimize domain classification accuracy
+    * Label predictor : Maximize classification accuracy
+    * Domain classifier : Maximize classification accuracy
+
+### Feature Disentangle
+
+#### Original Seq2Seq Auto-Encoder
+
+<img src="images/s1.PNG" width="600"/> 
+
+* The code consists of phonetic information, speaker information, background noise and more
+* If able to isolate the phonetic and speaker information, would have many applications
+
+<img src="images/s2.PNG" width="600"/> 
+
+* Phonetic encoder isolates the phonetic information from the speech signal and removes speaker information
+* Phonetic encoder can be plugged into speech recognition system
+* Speaker encoder isolates speaker information while removes phonetic information
+* Can be used for voiceprint recognition which is the task of recognizing who spoke
+
+
+#### Training speaker encoder
+
+<img src="images/s3.PNG" width="600"/> 
+
+* Take a speech signal from same speaker
+* Split it into two parts
+* Fed into speaker encoder which generates vector
+* We want both of the vector as close as possible
+
+<img src="images/s4.PNG" width="600"/> 
+
+* Take speech signal from different speakers
+* Distance between two encoded vectors should not be smaller than a threshold
+
+#### Training phonetic encoder
+
+<img src="images/s5.PNG" width="600"/> 
+
+* Inspired by domain adversarial training
+* The speaker classifier try to differentiate the vectors are from same speaker or different speaker
+* Give low score to different speaker
+* Give high score to same speaker
+* Phonetic encoder tries to confuse / fool the speaker classifier
+
+#### Results
+
+<img src="images/r1.PNG" width="300"/>
+
+* From different speakers, words form clusters when void of speaker information
+
+<img src="images/r2.PNG" width="300"/>
+
+* Same word but different speaker
+
+<img src="images/r3.PNG" width="300"/>
+
+* Different speakers have similar phonetic information. Different speakers' pronunciation may be similar in some part
+
+<img src="images/r4.PNG" width="300"/>
+
+* Different speaker forms different clusters
