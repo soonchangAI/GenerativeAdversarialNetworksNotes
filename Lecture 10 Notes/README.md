@@ -69,7 +69,9 @@
 
 * We do not want GAN to memorize the images 
 * Generating images very similar to real images 
+
 <img src="images/m1.PNG" width="600"/>
+
 * Using L1 or L2 to measure similarity between generated images and images in database pixel by pixel is a bad idea
 * Each line represents one of the 8 images 
 * The top left image is the original image
