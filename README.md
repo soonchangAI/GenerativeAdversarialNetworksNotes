@@ -13,7 +13,7 @@ My notes for Prof. Hung-Yi Lee's lectures on [Generative Adversarial Networks](h
 1. [Info GAN, VAE-GAN, BiGAN](Lecture%207%20Notes/README.md) 
 1. [Photo Editing](Lecture%208%20Notes/README.md)
 1. [Sequence Generation]() *work in progress*
-1. [Evaluation and Concluding Remarks]() *work in progress*
+1. [Evaluation](Lecture%2010%20Notes/README.md) 
 
 Links :
 * [Course Slides](http://speech.ee.ntu.edu.tw/~tlkagk/courses_MLDS18.html)
