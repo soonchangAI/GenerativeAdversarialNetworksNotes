@@ -270,7 +270,7 @@ Structure Learning Approach:
 
 ## GAN result 
 
-<img src="images/gan_res.png" width = "400" >
+<img src="images/gan_res.PNG" width = "400" >
 
 * The figure abive shows the generated data points and real data points of 2D
 * The blue represents real data points
