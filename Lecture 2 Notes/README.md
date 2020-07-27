@@ -32,9 +32,7 @@
 * Original D design won't work
 * G only learns to generate realistic images 
 * Meanwhile, it'll ignore the input condition <code>c</code>
-
 * Discriminator needs to consume **G's input and output** as following:
-
 
 <img src="images/cgan3.PNG" width="400">
 
