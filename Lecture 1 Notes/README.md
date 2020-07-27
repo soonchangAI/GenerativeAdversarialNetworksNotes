@@ -179,13 +179,30 @@ Structure Learning Approach:
 * Linear combination of these codes when input to generator, may not generate meaningful output.
 > *a* ⟶ Generator ⟶ Image , *b* ⟶ Generator ⟶ Image
 > * 0.5 *a* + 0.5 *b* ⟶ Generator ⟶ Noise
-
-
+* Adding noise to the latent vector results in the decoder fail to generate valid image
 * Variational auto-encoder is more stable
+* Because it is trained by adding random noise to the latent vector
+* Encoder generates the latent vectors and variances
+* Noise are sampled from a normal distribution
+* Multiply noise and variance exponent together
+* Adds to the latent vectors
 
 <img src="images/vae.PNG" width = "600" >
 
+* During training, also include a constraint, to make the variance small, but not too small
+* After training, if noise is added to the vector, the decoder still can generate valid image
 
+<img src="images/vae_res.PNG" width = "600" >
+
+* The figue above shows the result of VAE on 2D data
+* Green represents the real data points
+* Blue represents the generated data points
+* The red circle: Some generated data points are distributed at region without any real data
+* VAE cannot learn that real data distributes at 2 regions:
+    * Both x1 and x2 are large
+    * x1 is large but x2 is small
+    * No distribution in the region in between 
+* Instead, the generated data spread out in between those 2 regions
 * The training objective is to have generated image as close as possible to the target.
 * The loss function used may be L1 or L2 norm of the difference of two image (generated and target).
 * That means it compares them pixel-by-pixel
@@ -239,7 +256,7 @@ Structure Learning Approach:
 * Repeat iteratively, discriminator will learn to generate good objects.
 
 
-<img src="images/d_learning.PNG" width = "400" >
+<img src="images/d_learning.png" width = "400" >
 
 
 * Real examples in green, negative examples in blue.
@@ -251,6 +268,14 @@ Structure Learning Approach:
 * In the end, the distribution of real and negative examples are the same
 * Can generate very realistic negative examples that D(x) is unable to tell apart.
 
+## GAN result 
+
+<img src="images/gan_res.png" width = "400" >
+
+* The figure abive shows the generated data points and real data points of 2D
+* The blue represents real data points
+* The red represents generated data points
+* Unlike VAE, no much generated data points spread out at region in between
 ## Generator vs. Discriminator
 **Generator:**
 >Pros :
